@@ -70,8 +70,7 @@ module PagesHelper
     customer  = get_data( data + 'customers' )
     suppliers = get_data( data + 'suppliers' )
 
-    inv_array << customer << suppliers
-
+    return inv_array << customer << suppliers
   end
 
 
@@ -180,7 +179,5 @@ module PagesHelper
     type = type == "employees" ? "Count" : "Amount"
     hash.to_a.unshift(["Country", type])
   end
-
-
 
 end
