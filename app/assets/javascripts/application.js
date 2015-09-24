@@ -14,8 +14,9 @@
 //= require jquery_ujs
 //= require vendor/jquery-ui.min
 //= require vendor/underscore-min
-//= require angular
+//= require vendor/angular
+//= require vendor/ui-bootstrap-tpls
 //= require vendor/sortable
 //= require vendor/malhar-angular-dashboard
-//= require vendor/ui-bootstrap-tpls
+//= require vendor/ng-google-chart
 //= require app
