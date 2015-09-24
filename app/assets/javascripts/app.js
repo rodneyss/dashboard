@@ -63,15 +63,17 @@ app.directive('geoWorkers',["$http", "GeoMap", function($http, GeoMap) {
         restrict: 'A',
         scope: true,
         replace: true,
-        template: '<div>Employee Location<div google-chart chart="chart"></div></div>',
+        template: '<div><div class="spinner-loader" ng-show="loading"></div>Employee Location<div google-chart chart="chart"></div></div>',
         link: function(scope) {
             //
             // wanted a factory for api request but had issues with async
             // and assigning chart data that geomap uses to draw map
             // 
+            scope.loading = true;
             $http.get('api/employees').
             then(function(response) {
                 scope.chart = GeoMap.getGeoData(response.data, 'employees');
+                scope.loading = false;
             }, function(response) {
                 console.log("error getting geodata", response.data);
             });
@@ -82,13 +84,14 @@ app.directive('geoSales', ["$http", "GeoMap", function($http, GeoMap) {
     return {
         restrict: 'A',
         replace: true,
-        template: '<div>Sales<div google-chart chart="chart"></div></div>',
+        template: '<div><div class="spinner-loader" ng-show="loading"></div>Sales<div google-chart chart="chart"></div></div>',
         //link: is a run once function that is envoked when widget is called
         link: function(scope) {
-
+            scope.loading = true;
             $http.get('api/invoices').
             then(function(response) {
                 scope.chart = GeoMap.getGeoData(response.data, 'invoices');
+                scope.loading = false;
             }, function(response) {
                 console.log("error getting geodata", response.data);
             });
