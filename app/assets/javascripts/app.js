@@ -47,7 +47,7 @@ app.value('defaultWidgets', [{
     }
 
 ]);
-app.controller('DashCtrl', function($scope, $window, widgetDefinitions, defaultWidgets) {
+app.controller('DashCtrl', ["$scope", "$window", "widgetDefinitions", "defaultWidgets", function($scope, $window, widgetDefinitions, defaultWidgets) {
 
     $scope.dashboardOptions = {
         widgetButtons: true,
@@ -57,8 +57,8 @@ app.controller('DashCtrl', function($scope, $window, widgetDefinitions, defaultW
         storageId: 'demo'
     };
 
-});
-app.directive('geoWorkers', function($http, GeoMap) {
+}]);
+app.directive('geoWorkers',["$http", "GeoMap", function($http, GeoMap) {
     return {
         restrict: 'A',
         scope: true,
@@ -77,8 +77,8 @@ app.directive('geoWorkers', function($http, GeoMap) {
             });
         }
     };
-});
-app.directive('geoSales', function($http, GeoMap) {
+}]);
+app.directive('geoSales', ["$http", "GeoMap", function($http, GeoMap) {
     return {
         restrict: 'A',
         replace: true,
@@ -95,7 +95,7 @@ app.directive('geoSales', function($http, GeoMap) {
 
         }
     };
-});
+}]);
 app.factory('GeoMap', function() {
     return {
 
