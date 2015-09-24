@@ -122,6 +122,7 @@ RSpec.describe PagesHelper, type: :helper do
     end
   end
 
+
   describe '#save_to_db' do
     it 'saves a country to database' do
       save_to_db("nsw", "AU")

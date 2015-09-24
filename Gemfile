@@ -52,6 +52,8 @@ gem 'remove_turbolinks'
 group :development do
   gem 'jasmine', github: 'pivotal/jasmine-gem'
   gem 'capybara-angular'
+  gem 'poltergeist'
+  gem 'database_cleaner'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'annotate'
