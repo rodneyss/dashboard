@@ -19,5 +19,3 @@
 //= require vendor/malhar-angular-dashboard
 //= require vendor/ui-bootstrap-tpls
 //= require app
-//= require_tree .
-
