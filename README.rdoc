@@ -1,28 +1,32 @@
 == README
+Rails server with an angular dashboard and 2 widgets. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Employee widget displays on the map where employees are located.
+Sales widget displays on a map where the most cash flow is present.
 
-Things you may want to cover:
+Database of employees is queried through an api when widget is added
+Database of sales is queried through the same api when widget added
 
-* Ruby version
+The rails server handles the communication to the api server
+and formatting of the data before sending it back to the angular app.
 
-* System dependencies
+Geocoder was used because some of the data didnt contain a country.
+Other parts of address was used to determine country eg. NSW, Beechworth
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A database was also set up to reduce reliance on geocoder to find country
+origin.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+libraries/frameworks
+  - malhar angular dashboard
+  - geocoder
+  - HTTParty
+  - angular
+  - ng-google-charts
+  - underscore
+
+jasmine and rspec used to test app
+
+To run tests
+=> rake jasmine
+=> rspec
