@@ -3,16 +3,34 @@
 <head>
   <title>Imapc</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= csrf_meta_tags %>
 
   
 </head>
 
 <body ng-app="impac">
-  
+    
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Rodney Sue-San</a>
+   </div>
+  </nav>
 
-  <%= yield %>
+  <div class="container">
+
+    <%= yield %>
+  
+  </div>
+
+
+<!-- incase dont want to load from server -->
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+<script src="//rawgithub.com/angular-ui/ui-sortable/master/src/sortable.js"></script> -->
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>

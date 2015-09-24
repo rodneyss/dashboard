@@ -12,14 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
-
-//= require angular/angular
-//= require Sortable/Sortable
-//= require angular-bootstrap/ui-bootstrap
-//= require angular-bootstrap/ui-bootstrap-tpls
-
-//= require angular-dashboard-framework/dist/angular-dashboard-framework.min
-
+//= require vendor/jquery-ui.min
+//= require vendor/underscore-min
+//= require angular
+//= require vendor/sortable
+//= require vendor/malhar-angular-dashboard
+//= require vendor/ui-bootstrap-tpls
+//= require app
 //= require_tree .
 

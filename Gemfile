@@ -21,10 +21,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'httparty', '~> 0.13.5'
+
+gem 'geocoder'
+
+gem 'angularjs-rails'
 
 
-gem 'bower-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -50,6 +54,8 @@ end
 
 gem 'remove_turbolinks'
 group :development do
+  gem 'jasmine', github: 'pivotal/jasmine-gem'
+  gem 'capybara-angular'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'annotate'
