@@ -19,4 +19,6 @@
 //= require vendor/sortable
 //= require vendor/malhar-angular-dashboard
 //= require vendor/ng-google-chart
+//= require material
 //= require app
+//= require_tree .

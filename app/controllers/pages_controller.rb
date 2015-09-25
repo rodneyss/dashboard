@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   include PagesHelper
 
   def home
-
+    redirect_to login_path unless @current_user
   end
 
   def api

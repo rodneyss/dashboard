@@ -5,8 +5,9 @@ module PagesHelper
   # takes in a string query to determine the search
   # returns formated and complete url string
   def get_url(query)
+    org     = @current_user.organization
     url     = "http://api-impac-uat.maestrano.io/api/v1/get_widget?"
-    meta    = "&metadata[organization_ids][]=org-fbte"
+    meta    = "&metadata[organization_ids][]=#{org}"
     search  = ""
     meta2   = ""
 
@@ -26,12 +27,12 @@ module PagesHelper
   # HTTParty uses string to query url
   # returns response from HTTParty
   def get_data(str)
-    user  = "72db99d0-05dc-0133-cefe-22000a93862b"
-    pass  = "_cIOpimIoDi3RIviWteOTA"
+    user  = @current_user.api_user
+    pass  = @current_user.api_pass
+    
     auth  = {username: user, password: pass}
 
-    data = HTTParty.get(str, basic_auth: auth)
-
+    return data = HTTParty.get(str, basic_auth: auth)
   end
 
   # get_employees
@@ -177,7 +178,8 @@ module PagesHelper
   # return eg. [ ["Country", "Count"], ["US", 20], ["AU", 3] ]
   def convert_hash_to_array(hash, type)
     type = type == "employees" ? "Count" : "Amount"
-    hash.to_a.unshift(["Country", type])
+
+    return hash.to_a.unshift(["Country", type])
   end
 
 end

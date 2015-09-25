@@ -1,19 +1,31 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the PagesHelper. For example:
-#
-# describe PagesHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
+
+def get_user
+  email = 'test@site.com'
+  pass  = 'password'
+  org   = 'org-fbte'
+  api_u = '72db99d0-05dc-0133-cefe-22000a93862b'
+  api_p = '_cIOpimIoDi3RIviWteOTA'
+
+  user = User.create(email: email, 
+                     password: pass, 
+                     organization: org, 
+                     api_user: api_u,
+                     api_pass: api_p 
+                    )
+end
+
+
 RSpec.describe PagesHelper, type: :helper do
+
   describe '#get_url' do 
+
+    before { controller.instance_variable_set(:@current_user, get_user) }
+
     it 'takes a string returns a string' do
       result = "http://api-impac-uat.maestrano.io/api/v1/get_widget?engine=hr/employee_details&metadata[organization_ids][]=org-fbte"
+      
 
       string = helper.get_url('employees')
       expect(string).to eq(result)
@@ -77,6 +89,9 @@ RSpec.describe PagesHelper, type: :helper do
   end
 
   describe '#get_data' do 
+
+    before { controller.instance_variable_set(:@current_user, get_user) }
+
     string = "http://api-impac-uat.maestrano.io/api/v1/get_widget?engine=hr/employee_details&metadata[organization_ids][]=org-fbte"
 
     it 'takes a url string returns its response' do
@@ -97,6 +112,9 @@ RSpec.describe PagesHelper, type: :helper do
   end
 
   describe '#get_invoices' do
+
+    before { controller.instance_variable_set(:@current_user, get_user) }
+
     string = "http://api-impac-uat.maestrano.io/api/v1/get_widget?engine=hr/employee_details&metadata[organization_ids][]=org-fbte&metadata[entity]="
 
     it 'takes a string and returns an array' do
@@ -121,7 +139,6 @@ RSpec.describe PagesHelper, type: :helper do
       expect(check_local_db("nsw")).to eq(nil)
     end
   end
-
 
   describe '#save_to_db' do
     it 'saves a country to database' do
