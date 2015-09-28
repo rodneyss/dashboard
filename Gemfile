@@ -52,9 +52,11 @@ end
 
 gem 'remove_turbolinks'
 group :development do
+  gem 'angularjs-rails'
   gem 'jasmine', github: 'pivotal/jasmine-gem'
   gem 'capybara-angular'
   gem 'poltergeist'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
   gem 'database_cleaner'
   gem 'pry-rails'
   gem 'pry-stack_explorer'

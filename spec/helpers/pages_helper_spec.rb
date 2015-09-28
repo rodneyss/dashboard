@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 def get_user
   email = 'test@site.com'
   pass  = 'password'
@@ -15,7 +14,6 @@ def get_user
                      api_pass: api_p 
                     )
 end
-
 
 RSpec.describe PagesHelper, type: :helper do
 
@@ -41,6 +39,39 @@ RSpec.describe PagesHelper, type: :helper do
   end
 
   describe '#get_country' do
+
+    Geocoder.configure(:lookup => :test)
+
+    Geocoder::Lookup::Test.add_stub(
+      "vic", [
+        {
+          'address_components' => [{'short_name'=> 'AU',
+                                    'types'=>['country']}
+                                  ]
+        }
+      ]
+    )
+
+    Geocoder::Lookup::Test.add_stub(
+      "MVL", [
+        {
+          'address_components' => [{'short_name'=> 'US',
+                                    'types'=>['country']}
+                                  ]
+        }
+      ]
+    )
+
+    Geocoder::Lookup::Test.add_stub(
+      "nsw", [
+        {
+          'address_components' => [{'short_name'=> 'AU',
+                                    'types'=>['country']}
+                                  ]
+        }
+      ]
+    )
+
     it 'takes a string and returns country' do
       expect(helper.get_country("vic")).to eq("AU")
     end
