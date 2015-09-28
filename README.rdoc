@@ -1,6 +1,6 @@
 == README
 
-<dashang.herokuapp.com>
+<http://dashang.herokuapp.com>
 
 Rails server with an angular dashboard and 2 widgets. 
 
