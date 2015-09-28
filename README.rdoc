@@ -31,5 +31,5 @@ libraries/frameworks
 jasmine and capybara/rspec used to test app
 
 To run tests
-=> rake jasmine
-=> rspec
+  - rake jasmine
+  - rspec
