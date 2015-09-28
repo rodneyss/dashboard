@@ -1,16 +1,8 @@
-
+(function() {
     'use strict';
-    var Geomap;
 
     describe('Service: GeoMap', function() {
-        beforeEach( module('myApp') );
-
-        // beforeEach(function() {
-        //     module('myApp');
-        //     inject(function($injector) {
-        //         GeoMap = $injector.get('GeoMap');
-        //     });
-        // });
+        beforeEach(module('myApp'));
 
         it('returns JSON object with geochart data', inject(function(GeoMap) {
             var items;
@@ -19,7 +11,7 @@
                 ["SPE", "HER"],
                 ["AU", 20]
             ], "workers");
-            expect(items.type).toEqual("GeoChar");
+            expect(items.type).toEqual("GeoChart");
             expect(items.formatters).not.toBeDefined();
         }));
 
@@ -33,5 +25,8 @@
             expect(items.formatters).toBeDefined();
         }));
     });
+
+    
+})();
 
 

@@ -54,7 +54,7 @@
             widgetDefinitions: widgetDefinitions,
             defaultWidgets: defaultWidgets,
             storage: $window.localStorage,
-            storageId: 'demo'
+            storageId: 'geomapsdat'
         };
 
     }]);
