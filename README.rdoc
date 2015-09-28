@@ -1,4 +1,7 @@
 == README
+
+<dashang.herokuapp.com>
+
 Rails server with an angular dashboard and 2 widgets. 
 
 Employee widget displays on the map where employees are located.
@@ -25,7 +28,7 @@ libraries/frameworks
   - ng-google-charts
   - underscore
 
-jasmine and rspec used to test app
+jasmine and capybara/rspec used to test app
 
 To run tests
 => rake jasmine
